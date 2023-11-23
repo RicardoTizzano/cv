@@ -1,0 +1,156 @@
+.contact {
+    display: grid;
+    max-width: 800px;
+    color: var(--menu-opcion);
+    background-color: var(--menu-mobile-fondo);
+    border-radius: 14px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 18px;
+    gap: 25px;
+    padding: 25px;
+}
+
+.contact.p,
+.contact.h2,
+.contact.ul {
+    margin: 0;
+    padding: 0;
+}
+
+.contact-title {
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.contact-details,
+.contact.form {
+    display: grid;
+    justify-content: left;
+    font-size: 25px;
+    gap: 20px;
+}
+
+.contact-label {
+    font-size: 18px;
+    font-weight: 650;
+    padding: 0;
+    margin: 0;
+}
+
+
+.contact-text {
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-details-group,
+.contact-form-group {
+    display: grid;
+    gap: 3px;
+}
+
+.contact-form-group label {
+    font-weight: 500;
+    padding-top: 10px;
+}
+
+.contact-form-group input {
+    border-radius: 10px;
+    border: none;
+    max-width: 350px;
+    height: 30px;
+    padding: 5px;
+}
+
+.contact-form-group textarea {
+    border-radius: 10px;
+    border: none;
+    max-height: 300px;
+    min-height: 200px;
+    padding: 5px;
+    resize: vertical;
+}
+
+textarea:focus,
+input:focus {
+    outline: none;
+}
+
+.contact-form-submit {
+    background: linear-gradient(var(--menu-fondo), var(--navbar-color-sombra));
+    color: var(--menu-opcion);
+    border: none;
+    font-size: 20px;
+    padding: 0.5em 1em;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.contact-form-submit:hover {
+    filter: brightness(130%);
+}
+
+.contact-form-submit-area {
+    display: grid;
+    justify-content: center;
+}
+
+.social-item a {
+    padding: 20px;
+    background: linear-gradient(var(--menu-fondo), var(--navbar-color-sombra));
+    border-radius: 50%;
+}
+
+.social-item a:hover {
+    filter: brightness(130%);
+}
+
+.social-nav li {
+    list-style: none;
+}
+
+@media (min-width :950px),
+(orientation:landscape) {
+    .contact {
+        max-width: 950px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    .contact-title {
+        font-size: 35px;
+        text-align: left;
+    }
+
+    .social-list {
+        justify-content: flex-start;
+    }
+
+    .contact-title {
+        grid-area: title;
+    }
+
+    .contact-details {
+        grid-area: details;
+    }
+
+    .contact-form {
+        grid-area: form;
+    }
+
+    .social-list {
+        grid-area: social;
+    }
+
+    .contact {
+        grid:
+            "title   form" auto
+            "details form" 1fr
+            "social  social" auto/
+             1fr    1fr;
+        align-items: start;
+    }
+}

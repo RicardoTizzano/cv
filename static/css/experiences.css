@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;700&display=swap');
+
+
+.wave {
+    width: 100%;
+    position: relative;
+    top: 2px;
+}
+
+.wave-bottom {
+    transform: scaleY(-1);
+    position: relative;
+    top: -2px;
+}
+
+.experiences {
+    display: flex;
+    flex-direction: column;
+    font-family: "Noto Sans", sans-serif;
+}
+
+.experiences-body {
+    background-color: var(--menu-fondo);
+    color: var(--menu-opcion);
+    font-family: "Noto Sans", sans-serif;
+}
+
+.experience {
+    padding: 25px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.experiences-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: "Noto Sans", sans-serif;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+}
+
+.experience-date {
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--navbar-color-sombra);
+}
+
+.experience-company {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 5px;
+    font-family: "Noto Sans", sans-serif;
+}
+
+.experience-position {
+    font-size: 20px;
+    margin-top: 5px;
+    font-family: "Noto Sans", sans-serif;
+}
+
+.experience-description {
+    font-size: 18px;
+    margin-top: 5px;
+    font-family: "Noto Sans", sans-serif;
+}
+
+
+@media (min-width: 950px) {
+
+    .experiences-grid {
+        display: grid;
+        grid-template-columns: auto 2px auto;
+        justify-content: center;
+        gap: 20px;
+    }
+
+
+    .experience-date {
+        font-size: 30px;
+        font-weight: bold;
+        color: var(--navbar-color-sombra);
+    }
+
+    .experience-company {
+        font-size: 25px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-top: 5px;
+        font-family: "Noto Sans", sans-serif;
+    }
+
+    .experience-position {
+        font-size: 22px;
+        margin-top: 5px;
+        font-family: "Noto Sans", sans-serif;
+    }
+
+    .experience-description {
+        font-size: 19px;
+        margin-top: 5px;
+        font-family: "Noto Sans", sans-serif;
+    }
+
+    .experience {
+        padding: 25px;
+        max-width: 500px;
+        margin-left: 60px;
+        margin-right: 60px;
+        font-size: 20px;
+    }
+
+    .experience_left {
+        text-align: right;
+    }
+
+    .line {
+        background-color: var(--body-fondo);
+        position: relative;
+    }
+
+    .empty {
+        background-color: var(--menu-fondo);
+    }
+
+    .line::before,
+    .line::after {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-color: var(--body-fondo);
+        border-radius: 50%;
+        position: absolute;
+        top: -20px;
+        left: -9px;
+    }
+
+    .line::after {
+        top: 100%;
+        z-index: 1;
+    }
+}
+
+@media (orientation:landscape) {
+    .experiences-grid {
+        display: grid;
+        grid-template-columns: auto 2px auto;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .experience-date {
+        font-size: 25px;
+        font-weight: bold;
+        color: var(--navbar-color-sombra);
+    }
+
+    .experience-company {
+        font-size: 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-top: 5px;
+        font-family: "Noto Sans", sans-serif;
+    }
+
+    .experience-position {
+        font-size: 18px;
+        margin-top: 5px;
+        font-family: "Noto Sans", sans-serif;
+    }
+
+    .experience-description {
+        font-size: 16px;
+        margin-top: 5px;
+        font-family: "Noto Sans", sans-serif;
+    }
+
+    .experience {
+        padding: 22px;
+        max-width: 500px;
+        margin-left: 60px;
+        margin-right: 60px;
+        font-size: 20px;
+    }
+
+    .experience_left {
+        text-align: right;
+    }
+
+    .line {
+        background-color: var(--body-fondo);
+        position: relative;
+    }
+
+    .empty {
+        background-color: var(--menu-fondo);
+    }
+
+    .line::before,
+    .line::after {
+        content: "";
+        display: block;
+        width: 18px;
+        height: 20px;
+        background-color: var(--body-fondo);
+        border-radius: 50%;
+        position: absolute;
+        top: -20px;
+        left: -9px;
+    }
+
+    .line::after {
+        top: 100%;
+        z-index: 1;
+    }
+}
