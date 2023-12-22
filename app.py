@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, flash, redirect, url_for
 from flask_mail import Mail, Message
+from twilio.rest import Client
 import os
 
 app = Flask(__name__)
@@ -38,10 +39,24 @@ def send():
                     sender='ricardotizzano@gmail.com', 
                     recipients=['ricardotizzano@gmail.com'])
         
-        msg.body = message
+        msg.body = message + 'El mail es ' + email
         mail.send(msg)
         enviado = "Mensaje enviado!"
         flash(enviado)
+
+        # client credentials are read from TWILIO_ACCOUNT_SID and AUTH_TOKEN
+        client = Client()
+
+        # this is the Twilio sandbox testing number
+        from_whatsapp_number='whatsapp:+14155238886'
+        # replace this number with your own WhatsApp Messaging number
+        to_whatsapp_number='whatsapp:+34685775008'
+
+        client.messages.create(body='Te envió un mensaje '+name + ' que dice: '+ message + 
+                               ' .El mail es ' + email,
+                            from_=from_whatsapp_number,
+                       to=to_whatsapp_number)
+        
     return redirect(url_for("index",_anchor="contact"))
 
 if __name__ == '__main__':
