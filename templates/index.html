@@ -116,7 +116,7 @@
 
     </div>
     <div class="horizontal-padding vertical-padding">
-        <section id="contact" class="contact">
+        <section id="contact" class="contact" name="contact">
             <h2 class="contact-title">Contacto</h2>
             <div class="contact-details">
                 <div class="contact-details-group">
@@ -134,8 +134,11 @@
                 <div class="contact-details-group">
                     <p class="contact-text">Deje su mensaje y con gusto le responderé.</p>
                 </div>
+                <div>
+                    {{enviado}}
+                </div>
             </div>
-            <form class="contact-form">
+            <form class="contact-form" action = '/contact_post' method="GET">
                 <div class="contact-form-group">
                     <label for="name">Nombre</label>
                     <input required type="text" name="name" id="name">
@@ -149,8 +152,9 @@
                     <textarea required name="message" id="message" cols="30" rows="10"></textarea>
                 </div>
                 <div class="contact-form-submit-area">
-                    <a type="submit" class="contact-form-submit" href="/contact_post">Enviar</a>
+                    <input type="submit" class="contact-form-submit" value="Enviar"/>
                 </div>
+
             </form>
             <div class="social-list">
                 <nav class="social-nav">
