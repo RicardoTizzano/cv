@@ -31,7 +31,6 @@ def send():
                     sender='ricardotizzano@gmail.com', 
                     recipients=[email])
         
-        #msg.body = "Hola! He recibido tu mail y en breve me comunicaré contigo. Muchas gracias."
         msg.html = render_template('mail.html', name=name)
         mail.send(msg)
 
@@ -40,8 +39,11 @@ def send():
                     sender='ricardotizzano@gmail.com', 
                     recipients=['ricardotizzano@gmail.com'])
         
-        msg.body = message + 'El mail es ' + email
+        msg.body = "Te remitieron el siguiente mensaje : " + message +  \
+                    " El remitente es : " + name + " y el mail es " + email
         mail.send(msg)
+
+
         enviado = "Mensaje enviado!"
         flash(enviado)
 

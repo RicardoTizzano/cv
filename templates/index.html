@@ -134,17 +134,7 @@
                 <div class="contact-details-group">
                     <p class="contact-text">Deje su mensaje y con gusto le responderé.</p>
                 </div>
-                <div>
-                    {% with messages = get_flashed_messages() %}
-                        {% if messages %}
-                            <ul class=flashes>
-                            {% for message in messages %}
-                                <li>{{ message }}</li>
-                            {% endfor %}
-                            </ul>
-                        {% endif %}
-                    {% endwith %}
-                </div>
+
             </div>
             <form class="contact-form" action="{{ url_for('send') }}" method="get"  enctype="multipart/form-data">
                 <div class="contact-form-group">
@@ -161,6 +151,17 @@
                 </div>
                 <div class="contact-form-submit-area">
                     <input type="submit" class="contact-form-submit" value="Enviar"/>
+                </div>
+                <div class="enviado">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            <ul class="enviado">
+                            {% for message in messages %}
+                                <li>{{ message }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                    {% endwith %}
                 </div>
 
             </form>
