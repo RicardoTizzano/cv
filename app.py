@@ -36,7 +36,7 @@ def send():
         # Mensaje avisando del contacto 
         msg = Message(subject='Recibiste un contacto de ' + name, 
                     sender='ricardotizzano@gmail.com', 
-                    recipients=[email])
+                    recipients=['ricardotizzano@gmail.com'])
         
         msg.body = message
         mail.send(msg)
