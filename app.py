@@ -31,7 +31,8 @@ def send():
                     sender='ricardotizzano@gmail.com', 
                     recipients=[email])
         
-        msg.body = "Hola! He recibido tu mail y en breve me comunicaré contigo. Muchas gracias."
+        #msg.body = "Hola! He recibido tu mail y en breve me comunicaré contigo. Muchas gracias."
+        msg.html = render_template('mail.html', name=name)
         mail.send(msg)
 
         # Mensaje avisando del contacto 
