@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, request, flash, redirect, url_for
 from flask_mail import Mail, Message
 import os
 
@@ -41,8 +41,8 @@ def send():
         msg.body = message
         mail.send(msg)
         enviado = "Mensaje enviado!"
-        flash("Mensaje enviado !")
-    return render_template("index.html", enviado = enviado)
+        flash(enviado)
+    return redirect(url_for("index",_anchor="contact"))
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=8000)

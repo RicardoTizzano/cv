@@ -1,3 +1,7 @@
+ul {
+    list-style: none;
+}
+
 .contact {
     display: grid;
     max-width: 800px;

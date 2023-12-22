@@ -135,10 +135,18 @@
                     <p class="contact-text">Deje su mensaje y con gusto le responderé.</p>
                 </div>
                 <div>
-                    {{enviado}}
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            <ul class=flashes>
+                            {% for message in messages %}
+                                <li>{{ message }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                    {% endwith %}
                 </div>
             </div>
-            <form class="contact-form" action = '/contact_post' method="GET">
+            <form class="contact-form" action="{{ url_for('send') }}" method="get"  enctype="multipart/form-data">
                 <div class="contact-form-group">
                     <label for="name">Nombre</label>
                     <input required type="text" name="name" id="name">
