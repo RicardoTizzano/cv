@@ -34,7 +34,7 @@ def send():
                     recipients=[email])
         
         msg.html = render_template('mail.html', name=name)
-        #mail.send(msg)
+        mail.send(msg)
 
         # Mensaje avisando del contacto 
         msg = Message(subject='Recibiste un contacto de ' + name, 
@@ -43,7 +43,7 @@ def send():
         
         msg.body = "Te remitieron el siguiente mensaje : " + message +  \
                     " El remitente es : " + name + " y el mail es " + email
-        #mail.send(msg)
+        mail.send(msg)
 
 
         enviado = "Mensaje enviado!"
