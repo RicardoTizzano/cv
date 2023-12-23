@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/static/css/experiences.css">
     <link rel="stylesheet" href="/static/css/contact.css">
     <script defer src="{{ url_for('static', filename='app.js') }}"></script>
+    <html style="scroll-behavior: '{variable}';"></html>
 </head>
 
 <body>
@@ -118,6 +119,7 @@
     <div class="horizontal-padding vertical-padding">
         <section id="contact" class="contact" name="contact">
             <h2 class="contact-title">Contacto</h2>
+
             <div class="contact-details">
                 <div class="contact-details-group">
                     <p class="contact-label">Dirección</p>
@@ -134,7 +136,18 @@
                 <div class="contact-details-group">
                     <p class="contact-text">Deje su mensaje y con gusto le responderé.</p>
                 </div>
-
+                <div >
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            <ul class="enviado">
+                            {% for message in messages %}
+                                <li>{{ message }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                    {% endwith %}
+    
+                </div>
             </div>
             <form class="contact-form" action="{{ url_for('send') }}" method="get"  enctype="multipart/form-data">
                 <div class="contact-form-group">
@@ -152,18 +165,7 @@
                 <div class="contact-form-submit-area">
                     <input type="submit" class="contact-form-submit" value="Enviar"/>
                 </div>
-                <div >
-                    {% with messages = get_flashed_messages() %}
-                        {% if messages %}
-                            <ul class="enviado">
-                            {% for message in messages %}
-                                <li>{{ message }}</li>
-                            {% endfor %}
-                            </ul>
-                        {% endif %}
-                    {% endwith %}
 
-                </div>
 
             </form>
             <div class="social-list">
