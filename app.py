@@ -51,9 +51,9 @@ def send():
         client = Client()
 
         # this is the Twilio sandbox testing number
-        from_whatsapp_number='whatsapp:+14155238886'
+        from_whatsapp_number= os.environ.get('FROM_WHATSAPP_NUMBER')
         # replace this number with your own WhatsApp Messaging number
-        to_whatsapp_number='whatsapp:+34685775008'
+        to_whatsapp_number=os.environ.get('TO_WHATSAPP_NUMBER')
 
         client.messages.create(body='Te envió un mensaje '+name + ' que dice: '+ message + 
                                ' .El mail es ' + email,
