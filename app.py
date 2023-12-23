@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, flash, redirect, url_for
 from flask_mail import Mail, Message
 from twilio.rest import Client
 import os
+import db
+from models import Contacto
 
 app = Flask(__name__)
 
@@ -32,7 +34,7 @@ def send():
                     recipients=[email])
         
         msg.html = render_template('mail.html', name=name)
-        mail.send(msg)
+        #mail.send(msg)
 
         # Mensaje avisando del contacto 
         msg = Message(subject='Recibiste un contacto de ' + name, 
@@ -41,26 +43,35 @@ def send():
         
         msg.body = "Te remitieron el siguiente mensaje : " + message +  \
                     " El remitente es : " + name + " y el mail es " + email
-        mail.send(msg)
+        #mail.send(msg)
 
 
         enviado = "Mensaje enviado!"
         flash(enviado)
 
-        # client credentials are read from TWILIO_ACCOUNT_SID and AUTH_TOKEN
+        # Envío de WhastApp
+
         client = Client()
 
-        # this is the Twilio sandbox testing number
         from_whatsapp_number= os.environ.get('FROM_WHATSAPP_NUMBER')
-        # replace this number with your own WhatsApp Messaging number
+
         to_whatsapp_number=os.environ.get('TO_WHATSAPP_NUMBER')
 
         client.messages.create(body='Te envió un mensaje '+name + ' que dice: '+ message + 
                                ' .El mail es ' + email,
-                            from_=from_whatsapp_number,
-                       to=to_whatsapp_number)
+                                from_=from_whatsapp_number,
+                                to=to_whatsapp_number)
         
+        # Grabar a la base de datos
+        graba_contacto(db, name, email, message)
+
     return redirect(url_for("index",_anchor="contact"))
 
+def graba_contacto(db, name, email, message):
+    contacto = Contacto(name, email,None, message)
+    db.session.add(contacto)
+    db.session.commit()
+
 if __name__ == '__main__':
+    db.Base.metadata.create_all(db.engine)
     app.run(debug=True, host="0.0.0.0", port=8000)
