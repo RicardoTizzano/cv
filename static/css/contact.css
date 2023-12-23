@@ -2,17 +2,49 @@
     list-style: none;
     color: yellowgreen;
     font-weight:bolder;
-    /*background: linear-gradient(var(--menu-fondo), var(--navbar-color-sombra));*/
+    background: linear-gradient(var(--menu-fondo), var(--navbar-color-sombra));
     color: var(--menu-opcion);
     border: none;
     font-size: 20px;
     padding: 0.5em 1em;
+    white-space: nowrap;
     border-radius: 7px;
     cursor: pointer;
     margin-top: 20px;
     justify-content: center;
-
+    animation-duration: 3s, 3s;
+    animation-name: slidein, slideout;
+    animation-direction: alternate, alternate;
+    animation-delay: 0s, 3s;
+    animation-fill-mode: forwards;
 }
+
+@keyframes slidein {
+    0% {
+      width: 0%;
+      opacity: 0;
+
+    }
+  
+    100% {
+      width: 100%;
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideout {
+    0% {
+      opacity: 1;
+      width: 100%;
+
+    }
+  
+    100% {
+      opacity: 0;
+      width: 0%;
+      visibility: hidden;
+    }
+  }
 
 .contact {
     display: grid;

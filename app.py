@@ -32,7 +32,7 @@ def send():
                     recipients=[email])
         
         msg.html = render_template('mail.html', name=name)
-        mail.send(msg)
+        #mail.send(msg)
 
         # Mensaje avisando del contacto 
         msg = Message(subject='Recibiste un contacto de ' + name, 
@@ -41,7 +41,7 @@ def send():
         
         msg.body = "Te remitieron el siguiente mensaje : " + message +  \
                     " El remitente es : " + name + " y el mail es " + email
-        mail.send(msg)
+        #mail.send(msg)
 
 
         enviado = "Mensaje enviado!"
@@ -55,10 +55,10 @@ def send():
         # replace this number with your own WhatsApp Messaging number
         to_whatsapp_number='whatsapp:+34685775008'
 
-        client.messages.create(body='Te envió un mensaje '+name + ' que dice: '+ message + 
-                               ' .El mail es ' + email,
-                            from_=from_whatsapp_number,
-                       to=to_whatsapp_number)
+        #client.messages.create(body='Te envió un mensaje '+name + ' que dice: '+ message + 
+        #                       ' .El mail es ' + email,
+        #                    from_=from_whatsapp_number,
+        #               to=to_whatsapp_number)
         
     return redirect(url_for("index",_anchor="contact"))
 
